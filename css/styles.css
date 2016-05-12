@@ -1,0 +1,50 @@
+html {
+	font-family: 'helvetica neue', helvetica, sans-serif;
+	font-weight: 300;
+	background-color: #EEEEEE;
+}
+
+#container {
+	width:80%;
+	margin:auto;
+	background-color: #FFFFFF;
+	padding: 1em;
+}
+.column {
+	float:left;
+	width: 30%;
+	padding: 1%;
+	text-align: center;
+}
+.column input {
+	clear:both;
+}
+.error {
+	color: red;
+	font-size: 20em;
+}
+
+h1, h2, h3 {
+	color: green;
+	font-weight: 300;	
+}
+
+
+input[type="submit"], button {
+	display: inline-block;
+	font-size: 1.5em;
+	font-weight: 300;
+	width: 15em;
+	text-align: center;
+	color: green;
+	background: white;
+	border: 1px solid green;
+	padding:.5em;
+	float: right;
+}
+
+hr{
+	margin-bottom: 2em;
+	color: #666666;
+
+}
