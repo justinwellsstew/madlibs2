@@ -4,6 +4,8 @@
 		<title>Mad Libs</title>
 		<link href="css/styles.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+
 		<script src="js/app.js"></script>
 	</head>
 	<body ng-app ="app">
@@ -11,7 +13,7 @@
 			<header>
 				<img src="images/mad-lib-happy-face.png"><img src="images/ng-mad-libs-logo.png">
 			</header>
-			<section id="words">
+			<section id="words" ng-hide="submitted">
 				<h2>Select Gender</h2>
 				<input type="radio" name="gender" value="male" ng-change="genderChange()" ng-model="gender">male
 				<input type="radio" name="gender" value="female" ng-change="genderChange()" ng-model="gender">female
@@ -20,21 +22,21 @@
 				<form name="myForm" ng-submit="submit()"  novalidate>
 					<div class="column">
 						<p>Name:<br>
-							<input type="text" name="name" ng-model="name" required>
+							<input type="text" name="name" ng-model="name" placeholder="name" required>
 							<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
 							<span ng-show="myForm.name.$error.required">name is required.</span>
 							</span>
 						</p>
 
 						<p>Job Title:<br>
-							<input type="text" name="jobTitle" ng-model="jobTitle" required>
+							<input type="text" name="jobTitle" ng-model="jobTitle" placeholder = "Job Title" required>
 							<span style="color:red" ng-show="myForm.jobTitle.$dirty && myForm.jobTitle.$invalid">
 							<span ng-show="myForm.jobTitle.$error.required">TediousTask is required</span>
 							</span>
 						</p>
 
 						<p>Tedious Task:<br>
-						<input type="text" name="tediousTask" ng-model="tediousTask" required>
+						<input type="text" name="tediousTask" ng-model="tediousTask" placeholder = "Tedious Task" required>
 							<span style="color:red" ng-show="myForm.tediousTask.$dirty && myForm.tediousTask.$invalid">
 							<span ng-show="myForm.tediousTask.$error.required">TediousTask is required</span>
 							</span>
@@ -42,7 +44,7 @@
 					</div>
 					<div class="column">
 						<p>Dirty Task:<br>
-							<input type="text" name="dirtyTask" ng-model="dirtyTask" required>
+							<input type="text" name="dirtyTask" ng-model="dirtyTask" placeholder = "Dirty Task" required>
 							<span style="color:red" ng-show="myForm.dirtyTask.$dirty && myForm.dirtyTask.$invalid">
 							<span ng-show="myForm.dirtyTask.$error.required">Dirty Task is required.</span>
 							</span>
@@ -50,13 +52,13 @@
 
 
 						<p>Celebrity:<br>
-							<input type="text" name="celebrity" ng-model="celebrity" required>
+							<input type="text" name="celebrity" ng-model="celebrity" placeholder="Celebrity" required>
 							<span style="color:red" ng-show="myForm.celebrity.$dirty && myForm.celebrity.$invalid">
 							<span ng-show="myForm.celebrity.$error.required">Celebrity is required</span>
 							</span>
 						</p>
 						<p>Useless Skill:<br>
-							<input type="text" name="uselessSkill" ng-model="uselessSkill" required>
+							<input type="text" name="uselessSkill" ng-model="uselessSkill" placeholder="Use Skill" required>
 							<span style="color:red" ng-show="myForm.uselessSkill.$dirty && myForm.uselessSkill.$invalid">
 							<span ng-show="myForm.uselessSkill.$error.required">Email is required.</span>
 							</span>
@@ -64,21 +66,21 @@
 					</div>
 					<div class="column">
 						<p>Obnoxious Celebrity:<br>
-						<input type="text" name="obnoxiousCelebrity" ng-model="obnoxiousCelebrity" required>
+						<input type="text" name="obnoxiousCelebrity" ng-model="obnoxiousCelebrity" placeholder="Obnoxious Celebrity" required>
 						<span style="color:red" ng-show="myForm.obnoxiousCelebrity.$dirty && myForm.obnoxiousCelebrity.$invalid">
 						<span ng-show="myForm.obnoxiousCelebrity.$error.required">Email is required.</span>
 						</span>
 						</p>
 
 						<p>Huge Number:<br>
-							<input type="number" name="hugeNumber" ng-model="hugeNumber" ng-pattern="numbersOnly" required>
+							<input type="number" name="hugeNumber" ng-model="hugeNumber" placeholder="Huge Number" ng-pattern="numbersOnly" required>
 							<span style="color:red" ng-show="myForm.hugeNumber.$dirty && myForm.hugeNumber.$invalid">
 							<span ng-show="myForm.hugeNumber.$error.pattern">Must be a number</span>
 							<span ng-show="myForm.hugeNumber.$error.required"> Huge number is required</span>
 							</span>
 						</p>
 						<p>Adjective:<br>
-							<input type="text" name="adjective" ng-model="adjective" required>
+							<input type="text" name="adjective" ng-model="adjective" placeholder="adjective" required>
 							<span style="color:red" ng-show="myForm.adjective.$dirty && myForm.adjective.$invalid">
 							<span ng-show="myForm.adjective.$error.required">Adjective is required.</span>
 							</span>
@@ -86,12 +88,15 @@
 					</div>
 					<hr style="clear:both">
 					<input type="submit" value="Generate my Madlib" ng-disabled = "!myForm.$valid" ng-hide="submitted"/>
+					<div style="clear:both"></div>
 				</form>
-				<button ng-click="reset()" ng-show="submitted">Start Over</button>
-					<p style="clear:both">&nbsp</p>
+				
 			</section>
 			<section id="results" ng-show="submitted">
-				<p>{{name}} was a {{jobTitle}} who loved technology. Although {{genderPronoun}} loved parts of {{genderPosessive}} job, {{genderPronoun}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{name}} met with {{genderPosessive}} life mentor {{celebrity}} who told {{genderPosessive}} to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so {{genderPronoun}} studied programming instead. </p> <p>What a great decision! With {{genderPosessive}} new skills, {{name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster. </p>
+			<button ng-click="reset()" ng-show="submitted">Start Over</button>
+					<p style="clear:both">&nbsp</p>
+				<p id="first">{{name}} was a {{jobTitle}} who loved technology. Although {{genderPronoun}} loved parts of {{genderPosessive}} job, {{genderPronoun}} absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{name}} met with {{genderPosessive}} life mentor {{celebrity}} who told {{genderPosessive}} to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so {{genderPronoun}} studied programming instead. </p> 
+				<p id="last">What a great decision! With {{genderPosessive}} new skills, {{name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster. </p>
 			</section>
 		</div>
 	</body>

@@ -1,17 +1,17 @@
-angular.module('app',[])
+angular.module('app',['ngAnimate'])
 	.controller('textCtrl',['$scope', function($scope) {
-		$scope.genderPronoun = "he";
-		$scope.genderPosessive = "his";
-		$scope.gender = "male";
-		$scope.name='name'; 
-		$scope.jobTitle ='job title'; 
-		$scope.tediousTask='tedious task'; 
-		$scope.dirtyTask ='dirty task'; 
-		$scope.celebrity = 'celebrity'; 
-		$scope.uselessSkill = 'useless skill'; 
-		$scope.obnoxiousCelebrity = 'obnoxious celebrity'; 
-		$scope.hugeNumber = 1000; 
-		$scope.adjective = 'adjective'
+		$scope.genderPronoun = '';
+		$scope.genderPosessive = '';
+		$scope.gender = '';
+		$scope.name=''; 
+		$scope.jobTitle =''; 
+		$scope.tediousTask=''; 
+		$scope.dirtyTask =''; 
+		$scope.celebrity = ''; 
+		$scope.uselessSkill = ''; 
+		$scope.obnoxiousCelebrity = ''; 
+		$scope.hugeNumber = null; 
+		$scope.adjective = ''
 
 		$scope.genderChange = function(){
 			if($scope.gender=="female"){

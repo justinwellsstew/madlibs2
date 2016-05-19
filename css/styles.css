@@ -48,3 +48,38 @@ hr{
 	color: #666666;
 
 }
+
+/*Animation*/
+
+/*#results{
+   transition: all linear .5s;
+
+}
+
+
+.ng-hide-remove, .ng-hide-remove-active{
+	background-color: red;
+		margin-left: -1000px;
+	}*/
+
+#results {
+   padding: 1em;	
+   transition: all linear 1s;
+
+}
+
+.ng-hide-remove {
+	margin-top: 500px;
+	-webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+	}
+
+ .ng-hide-remove-active {
+ 	background-color:green;
+ }
+
+
+
+
+
+
