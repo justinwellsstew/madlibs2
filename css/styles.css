@@ -62,17 +62,27 @@ hr{
 		margin-left: -1000px;
 	}*/
 
-#results {
+#first {
    padding: 1em;	
    transition: all linear 1s;
 
 }
 
-.ng-hide-remove {
-	margin-top: 500px;
+#last {
+   padding: 1em;	
+   transition: all linear 6s;
+
+}
+#first.ng-hide-remove {
 	-webkit-transform: rotate(360deg);
     transform: rotate(360deg);
 	}
+
+#last.ng-hide-remove {
+	-webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+	}
+
 
  .ng-hide-remove-active {
  	background-color:green;

@@ -1,45 +1,46 @@
 angular.module('app',['ngAnimate'])
-	.controller('textCtrl',['$scope', function($scope) {
-		$scope.genderPronoun = '';
-		$scope.genderPosessive = '';
-		$scope.gender = '';
-		$scope.name=''; 
-		$scope.jobTitle =''; 
-		$scope.tediousTask=''; 
-		$scope.dirtyTask =''; 
-		$scope.celebrity = ''; 
-		$scope.uselessSkill = ''; 
-		$scope.obnoxiousCelebrity = ''; 
-		$scope.hugeNumber = null; 
-		$scope.adjective = ''
+	.controller('textCtrl', function() {
+		var vm = this;
+		vm.genderPronoun = '';
+		vm.genderPosessive = '';
+		vm.gender = '';
+		vm.name=''; 
+		vm.jobTitle =''; 
+		vm.tediousTask=''; 
+		vm.dirtyTask =''; 
+		vm.celebrity = ''; 
+		vm.uselessSkill = ''; 
+		vm.obnoxiousCelebrity = ''; 
+		vm.hugeNumber = null; 
+		vm.adjective = ''
 
-		$scope.genderChange = function(){
-			if($scope.gender=="female"){
-			$scope.genderPronoun = "she";
-			$scope.genderPosessive = "her";
+		vm.genderChange = function(){
+			if(vm.gender=="female"){
+			vm.genderPronoun = "she";
+			vm.genderPosessive = "her";
 		};
 		}
 
-		$scope.submit = function(){
-			$scope.submitted = true;
+		vm.submit = function(){
+			vm.submitted = true;
 		};
 
-		$scope.reset = function(){
-			$scope.genderPronoun = "he";
-			$scope.genderPosessive = "his";
-			$scope.gender = "male";
-			$scope.name='name'; 
-			$scope.jobTitle ='job title'; 
-			$scope.tediousTask='tedious task'; 
-			$scope.dirtyTask ='dirty task'; 
-			$scope.celebrity = 'celebrity'; 
-			$scope.uselessSkill = 'useless skill'; 
-			$scope.obnoxiousCelebrity = 'obnoxious celebrity'; 
-			$scope.hugeNumber = 1000; 
-			$scope.adjective = 'adjective';
+		vm.reset = function(){
+			vm.genderPronoun = "he";
+			vm.genderPosessive = "his";
+			vm.gender = "male";
+			vm.name='name'; 
+			vm.jobTitle ='job title'; 
+			vm.tediousTask='tedious task'; 
+			vm.dirtyTask ='dirty task'; 
+			vm.celebrity = 'celebrity'; 
+			vm.uselessSkill = 'useless skill'; 
+			vm.obnoxiousCelebrity = 'obnoxious celebrity'; 
+			vm.hugeNumber = 1000; 
+			vm.adjective = 'adjective';
 			// myForm.$submitted = false;
-			$scope.submitted = false;
+			vm.submitted = false;
 		}
 
-		$scope.numbersOnly = /^\d+$/;
-	}]);
+		vm.numbersOnly = /^\d+$/;
+	});
